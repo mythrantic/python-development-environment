@@ -2,7 +2,7 @@
 # syntax=docker/dockerfile:1
 # Stage 1: Install dependencies
 FROM ghcr.io/astral-sh/uv:python3.12-bookworm-slim AS deps
-WORKDIR /workspace/client/simple-client
+WORKDIR /workspace
 ENV UV_COMPILE_BYTECODE=1
 ENV UV_LINK_MODE=copy
 RUN apt-get update && apt-get install -y \
@@ -26,7 +26,7 @@ RUN --mount=type=cache,target=/root/.cache/uv \
 
 # Stage 2: Build the application image
 FROM ghcr.io/astral-sh/uv:python3.12-bookworm-slim
-WORKDIR /workspace/client/simple-client
+WORKDIR /workspace
 ENV UV_COMPILE_BYTECODE=1
 ENV UV_LINK_MODE=copy
 

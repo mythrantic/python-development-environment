@@ -1,2 +1,4 @@
-def main() -> None:
-    print("Hello from python-development-environment!")
+"""python development environment package"""
+from . import module
+
+__all__ = ["module"]

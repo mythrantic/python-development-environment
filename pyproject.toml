@@ -10,6 +10,9 @@ requires-python = ">=3.12"
 dependencies = [
     "debugpy>=1.8.18",
     "fastapi>=0.124.4",
+    "loguru>=0.7.3",
+    "prometheus-fastapi-instrumentator>=7.1.0",
+    "python-dotenv>=1.2.1",
     "uvicorn>=0.38.0",
 ]
 

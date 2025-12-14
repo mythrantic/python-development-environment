@@ -10,7 +10,7 @@ NC := \033[0m # No Color
 LOCAL_POCKETBASE_URL := http://localhost:8090
 
 help: ## Show this help message
-	@echo "$(BLUE)Receipt OCR Development Commands$(NC)"
+	@echo "$(BLUE)Python Development Environment Commands$(NC)"
 	@echo ""
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "$(GREEN)%-20s$(NC) %s\n", $$1, $$2}'
 
@@ -58,9 +58,9 @@ dataset_pull: ### go to datasets/ and for each folder, git pull
 	done
 	@echo "$(GREEN)Dataset pull complete$(NC)"
 
-dev: ## Start development server (port 8002)
-	@echo "$(BLUE)Starting on http://localhost:8002$(NC)" && \
-		POCKETBASE_URL=$(LOCAL_POCKETBASE_URL) uv run uvicorn src.main:app --reload --host 0.0.0.0 --port 8002
+dev: ## Start development server (port 8000)
+	@echo "$(BLUE)Starting on http://localhost:8000$(NC)" && \
+		POCKETBASE_URL=$(LOCAL_POCKETBASE_URL) uv run uvicorn src.main:app --reload --host 0.0.0.0 --port 8000
 
 install: ## Install dependencies (uv)
 	@echo "$(BLUE)Installing dependencies...$(NC)"
@@ -119,37 +119,37 @@ clean-all: clean ## Clean everything including dependencies
 # Development helpers
 tmux-dev: ## Start all services in tmux session (uses window 4)
 	@echo "$(YELLOW)Starting services in tmux...$(NC)"
-	@if tmux has-session -t receipt_ocr 2>/dev/null; then \
-		echo "$(GREEN)Session 'receipt_ocr' already exists. Attaching to window 4...$(NC)"; \
-		tmux attach-session -t receipt_ocr:4; \
+	@if tmux has-session -t python_development_environment 2>/dev/null; then \
+		echo "$(GREEN)Session 'python_development_environment' already exists. Attaching to window 4...$(NC)"; \
+		tmux attach-session -t python_development_environment:4; \
 	else \
 		if [ -f ~/.config/tmux/tmux.conf ] && grep -q "set-hook.*session-created" ~/.config/tmux/tmux.conf 2>/dev/null; then \
 			echo "$(BLUE)Using custom tmux config (session-created hook detected)...$(NC)"; \
-			tmux new-session -d -s receipt_ocr; \
+			tmux new-session -d -s python_development_environment; \
 			sleep 1; \
 		else \
 			echo "$(BLUE)Using standard tmux (no custom config detected)...$(NC)"; \
-			tmux new-session -d -s receipt_ocr -n editor; \
-			tmux send-keys -t receipt_ocr:1 'nvim .' C-m; \
-			tmux new-window -t receipt_ocr:2 -n git; \
-			tmux send-keys -t receipt_ocr:2 'lazygit' C-m; \
-			tmux new-window -t receipt_ocr:3 -n yazi; \
-			tmux send-keys -t receipt_ocr:3 'yazi' C-m; \
-			tmux new-window -t receipt_ocr:4 -n terminal; \
+			tmux new-session -d -s python_development_environment -n editor; \
+			tmux send-keys -t python_development_environment:1 'nvim .' C-m; \
+			tmux new-window -t python_development_environment:2 -n git; \
+			tmux send-keys -t python_development_environment:2 'lazygit' C-m; \
+			tmux new-window -t python_development_environment:3 -n yazi; \
+			tmux send-keys -t python_development_environment:3 'yazi' C-m; \
+			tmux new-window -t python_development_environment:4 -n terminal; \
 			sleep 0.5; \
 		fi; \
-		tmux select-window -t receipt_ocr:4; \
-		tmux send-keys -t receipt_ocr:4 'cd $(PWD) && make dev' C-m; \
-		tmux select-layout -t receipt_ocr:4 even-horizontal; \
-		tmux attach-session -t receipt_ocr:4; \
+		tmux select-window -t python_development_environment:4; \
+		tmux send-keys -t python_development_environment:4 'cd $(PWD) && make dev' C-m; \
+		tmux select-layout -t python_development_environment:4 even-horizontal; \
+		tmux attach-session -t python_development_environment:4; \
 	fi
 
 tmux-stop: ## Stop tmux development session
-	@tmux kill-session -t receipt_ocr 2>/dev/null || echo "No tmux session found"
+	@tmux kill-session -t python_development_environment 2>/dev/null || echo "No tmux session found"
 	@echo "$(GREEN)Tmux session stopped$(NC)"
 
 tmux-attach: ## Attach to existing tmux session
-	@tmux attach-session -t receipt_ocr
+	@tmux attach-session -t python_development_environment
 
 # Show current configuration
 show-config: ## Show current environment configuration

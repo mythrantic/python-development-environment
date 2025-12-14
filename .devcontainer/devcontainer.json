@@ -2,7 +2,7 @@
   "name": "python-development-environment-dev",
   "dockerComposeFile": ["../docker-compose.yml"],
   "service": "fastapi",
-  "workspaceFolder": "/code",
+  "workspaceFolder": "/workspace",
   "customizations": {
     "vscode": {
       "extensions": [
@@ -29,7 +29,6 @@
         "vscode-icons-team.vscode-icons",
         "esbenp.prettier-vscode",
         "jpotterm.simple-vim",
-        "wakatime.vscode-wakatime",
         "ms-azuretools.vscode-docker"
       ],
       "settings": {
@@ -42,5 +41,5 @@
       }
     }
   },
-  "postCreateCommand": "pip install -r requirements.txt"
+  "postCreateCommand": "uv sync"
 }

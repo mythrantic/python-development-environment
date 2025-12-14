@@ -8,8 +8,7 @@ debugpy.listen(("0.0.0.0", 5678))
 
 @app.get("/")
 def read_root():
-    return {"Hello": "World ass wiper"}
-
+    return {"Hello": "World !!"}
 
 @app.get("/items/{item_id}")
 def read_item(item_id: int, q: Union[str, None] = None):

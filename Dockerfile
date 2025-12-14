@@ -1,16 +1,64 @@
-FROM python:3.13-slim
 
-WORKDIR /code 
+# syntax=docker/dockerfile:1
+# Stage 1: Install dependencies
+FROM ghcr.io/astral-sh/uv:python3.12-bookworm-slim AS deps
+WORKDIR /workspace/client/simple-client
+ENV UV_COMPILE_BYTECODE=1
+ENV UV_LINK_MODE=copy
+RUN apt-get update && apt-get install -y \
+    git \
+    openssh-client \
+    && rm -rf /var/lib/apt/lists/*
+# Add GitHub to known hosts
+RUN mkdir -p /root/.ssh && \
+    ssh-keyscan github.com >> /root/.ssh/known_hosts
+# Copy dependency definitions first (for better caching)
+COPY pyproject.toml uv.lock* ./
 
-COPY ./requirements.txt ./
-RUN apt-get update && apt-get install git -y && apt-get install curl -y
+ARG GITHUB_TOKEN
+RUN --mount=type=cache,target=/root/.cache/uv \
+    echo "machine github.com login ${GITHUB_TOKEN} password x-oauth-basic" > /root/.netrc \
+    && chmod 600 /root/.netrc \
+    && uv sync --frozen --no-install-project --no-dev \
+    && rm /root/.netrc
 
-RUN python -m venv venv
-RUN chmod +x ./venv/bin/activate && ./venv/bin/activate
-RUN pip install --no-cache-dir -r requirements.txt
 
-COPY ./src ./src
 
-EXPOSE 8000
+# Stage 2: Build the application image
+FROM ghcr.io/astral-sh/uv:python3.12-bookworm-slim
+WORKDIR /workspace/client/simple-client
+ENV UV_COMPILE_BYTECODE=1
+ENV UV_LINK_MODE=copy
 
-CMD ["uvicorn", "src.main:app", "--host", "0.0.0.0", "--port", "8000", "--reload"]
+# Install system dependencies including OpenCV requirements
+RUN apt-get update && apt-get install -y \
+    curl \
+    apt-transport-https \
+    git \
+    lsb-release \
+    gnupg \
+    libgl1-mesa-glx \
+    libglib2.0-0 \
+    libsm6 \
+    libxext6 \
+    libxrender-dev \
+    libgomp1 \
+    && curl -sL https://aka.ms/InstallAzureCLIDeb | bash \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
+
+# Copy the dependencies from the previous stage
+COPY --from=deps /workspace/.venv/ /workspace/.venv/
+# Copy application code
+COPY . ./
+# Copy dependency files (needed for the final sync)
+COPY pyproject.toml uv.lock* ./
+# Install the project (dependencies are already installed)
+RUN --mount=type=cache,target=/root/.cache/uv \
+    uv sync --frozen --no-dev
+# Set the path to include the virtual environment
+ENV PATH="/workspace/.venv/bin:$PATH"
+# Expose port
+EXPOSE 8501
+
+CMD [ "uvicorn", "src.main:app", "--host", "0.0.0.0", "--port", "8000", "--reload" ]

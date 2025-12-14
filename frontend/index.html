@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Primary Meta Tags -->
+    <title>Python Development Environment - Modern FastAPI Project Template</title>
+    <meta name="title" content="Python Development Environment - Modern FastAPI Project Template">
+    <meta name="description" content="A production-ready Python project template with FastAPI backend, Docker support, and best practices. Perfect for building scalable web applications and APIs with Python.">
+    <meta name="keywords" content="python, fastapi, project template, python development, docker, python api, web development, backend development, python framework, microservices">
+    <meta name="author" content="Samlet Norge">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="English">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://python-development-environment.valiantlynx.com/">
+    <meta property="og:title" content="Python Development Environment - Modern FastAPI Project Template">
+    <meta property="og:description" content="A production-ready Python project template with FastAPI backend, Docker support, and best practices. Start building scalable applications today.">
+    <meta property="og:image" content="https://python-development-environment.valiantlynx.com/assets/og-image.png">
+    <meta property="og:site_name" content="Python Development Environment">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://python-development-environment.valiantlynx.com/">
+    <meta property="twitter:title" content="Python Development Environment - Modern FastAPI Project Template">
+    <meta property="twitter:description" content="A production-ready Python project template with FastAPI backend, Docker support, and best practices.">
+    <meta property="twitter:image" content="https://python-development-environment.valiantlynx.com/assets/og-image.png">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://python-development-environment.valiantlynx.com/">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    
+    <link rel="stylesheet" href="styles.css">
+    <script defer data-domain="python-development-environment.valiantlynx.com" src="http://plausible.valiantlynx.com/js/script.file-downloads.hash.outbound-links.pageview-props.revenue.tagged-events.js"></script>
+
+    <!-- Include the widget -->
+    <script src="https://cdn.jsdelivr.net/npm/@samletnorge/feedback-widget@latest/dist/feedback-widget.min.js"></script>
+
+    <!-- GitHub Discussions (Recommended) -->
+    <feedback-widget 
+        data-repo="mythrantic/python-development-environment" 
+        data-token="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"
+        data-type="discussion"
+        data-category="feedback"
+    >
+    </feedback-widget>
+    <script>window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }</script>
+
+    <!-- JSON-LD Schema for SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Python Development Environment",
+      "description": "A production-ready Python project template with FastAPI backend, Docker support, and best practices for building scalable web applications.",
+      "applicationCategory": "DeveloperApplication",
+      "operatingSystem": "Linux, Windows, macOS",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "programmingLanguage": "Python"
+    }
+    </script>
+
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <svg class="logo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+                </svg>
+                <span class="logo-text">Python Dev Template</span>
+            </div>
+            <div class="nav-links">
+                <a href="#features">Features</a>
+                <a href="#structure">Structure</a>
+                <a href="#getting-started">Get Started</a>
+                <a href="/docs" class="btn-secondary">API Docs</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    Modern Python Project Template
+                    <span class="gradient-text">Production Ready</span>
+                </h1>
+                <p class="hero-description">
+                    A comprehensive Python development environment with FastAPI, Docker, and best practices. 
+                    Start building scalable applications in minutes.
+                </p>
+                <div class="hero-cta">
+                    <a href="https://github.com/mythrantic/python-development-environment" class="btn-primary">View on GitHub</a>
+                    <a href="#getting-started" class="btn-outline">Quick Start</a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <div class="stat-value">FastAPI</div>
+                        <div class="stat-label">High Performance</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-value">Docker</div>
+                        <div class="stat-label">Ready</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-value">OpenAPI</div>
+                        <div class="stat-label">Auto Docs</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="container">
+            <h2 class="section-title">Everything You Need</h2>
+            <p class="section-subtitle">Production-ready features and best practices built-in</p>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">FastAPI Backend</h3>
+                    <p class="feature-description">
+                        High-performance async API framework with automatic OpenAPI documentation. 
+                        Type hints, validation, and modern Python features.
+                    </p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">Docker Ready</h3>
+                    <p class="feature-description">
+                        Complete Docker setup with docker-compose for development and production. 
+                        Consistent environments across all stages.
+                    </p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z" />
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">Project Structure</h3>
+                    <p class="feature-description">
+                        Clean, maintainable structure following Python best practices. 
+                        Organized routes, models, tests, and notebooks.
+                    </p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">Security First</h3>
+                    <p class="feature-description">
+                        CORS configuration, environment variables, and secure defaults. 
+                        Built with production security in mind.
+                    </p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">Monitoring Built-in</h3>
+                    <p class="feature-description">
+                        Prometheus metrics and structured logging with Loguru. 
+                        Track performance and debug issues easily.
+                    </p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">Static Frontend</h3>
+                    <p class="feature-description">
+                        Integrated frontend serving with FastAPI. 
+                        Perfect for SPAs, documentation, or admin panels.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Structure Section -->
+    <section id="structure" class="demo">
+        <div class="container">
+            <h2 class="section-title">Project Structure</h2>
+            <p class="section-subtitle">Clean and organized for scalability</p>
+            
+            <div class="demo-container" style="display: block; max-width: 900px; margin: 0 auto;">
+                <pre style="background: #1a1b26; color: #a9b1d6; padding: 2rem; border-radius: 12px; overflow-x: auto; text-align: left; font-size: 0.9rem; line-height: 1.6;">
+<span style="color: #7aa2f7;">python-development-environment/</span>
+├── <span style="color: #bb9af7;">docker-compose.yml</span>      # Multi-container Docker setup
+├── <span style="color: #bb9af7;">Dockerfile</span>             # Container configuration
+├── <span style="color: #bb9af7;">Makefile</span>               # Common development tasks
+├── <span style="color: #bb9af7;">pyproject.toml</span>         # Project dependencies & config
+├── <span style="color: #bb9af7;">README.md</span>              # Documentation
+├── <span style="color: #7aa2f7;">datasets/</span>              # Data storage
+├── <span style="color: #7aa2f7;">frontend/</span>              # Static web files
+│   ├── <span style="color: #9ece6a;">index.html</span>
+│   ├── <span style="color: #9ece6a;">app.js</span>
+│   └── <span style="color: #9ece6a;">styles.css</span>
+├── <span style="color: #7aa2f7;">models/</span>                # ML model storage
+├── <span style="color: #7aa2f7;">notebooks/</span>             # Jupyter notebooks
+├── <span style="color: #7aa2f7;">src/</span>                   # Application source
+│   ├── <span style="color: #9ece6a;">main.py</span>            # FastAPI entry point
+│   ├── <span style="color: #7aa2f7;">python_development_environment/</span>
+│   │   ├── <span style="color: #9ece6a;">__init__.py</span>
+│   │   └── <span style="color: #9ece6a;">module.py</span>     # Your modules
+│   └── <span style="color: #7aa2f7;">routes/</span>            # API endpoints
+│       ├── <span style="color: #9ece6a;">__init__.py</span>
+│       └── <span style="color: #9ece6a;">home_routes.py</span>
+└── <span style="color: #7aa2f7;">tests/</span>                 # Test suite
+                </pre>
+            </div>
+        </div>
+    </section>
+
+    <!-- Getting Started Section -->
+    <section id="getting-started" class="examples">
+        <div class="container">
+            <h2 class="section-title">Get Started in Minutes</h2>
+            <p class="section-subtitle">Three simple steps to start building</p>
+            
+            <!-- Step 1 -->
+            <div class="example-workflow">
+                <h3 class="workflow-title">Installation & Setup</h3>
+                <div class="workflow-step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Clone the Repository</h3>
+                        <p>Get started by cloning the project</p>
+                        <pre style="background: #1a1b26; color: #a9b1d6; padding: 1.5rem; border-radius: 8px; overflow-x: auto; text-align: left; margin-top: 1rem;">
+<span style="color: #9ece6a;">git clone</span> https://github.com/mythrantic/python-development-environment.git
+<span style="color: #9ece6a;">cd</span> python-development-environment</pre>
+                    </div>
+                </div>
+
+                <div class="workflow-arrow-down">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+                    </svg>
+                </div>
+
+                <div class="workflow-step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>Install Dependencies</h3>
+                        <p>Using Python 3.8+ with uv</p>
+                        <pre style="background: #1a1b26; color: #a9b1d6; padding: 1.5rem; border-radius: 8px; overflow-x: auto; text-align: left; margin-top: 1rem;">
+<span style="color: #7aa2f7;"># Install dependencies</span>
+<span style="color: #9ece6a;">uv </span>sync</pre>
+                    </div>
+                </div>
+
+                <div class="workflow-arrow-down">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+                    </svg>
+                </div>
+
+                <div class="workflow-step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Run the Application</h3>
+                        <p>Start the FastAPI server</p>
+                        <pre style="background: #1a1b26; color: #a9b1d6; padding: 1.5rem; border-radius: 8px; overflow-x: auto; text-align: left; margin-top: 1rem;">
+<span style="color: #7aa2f7;"># Using make (recommended)</span>
+<span style="color: #9ece6a;">make dev</span>
+
+<span style="color: #7aa2f7;"># Or directly with uvicorn</span>
+<span style="color: #9ece6a;">uvicorn</span> src.main:app --reload --host 0.0.0.0 --port 8000</pre>
+                        <p style="margin-top: 1.5rem; color: #9ece6a;">✓ Server running at <a href="http://localhost:8000" style="color: #7aa2f7;">http://localhost:8000</a></p>
+                        <p style="color: #9ece6a;">✓ API docs at <a href="http://localhost:8000/docs" style="color: #7aa2f7;">http://localhost:8000/docs</a></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 2: Docker Option -->
+            <div class="example-workflow" style="margin-top: 4rem;">
+                <h3 class="workflow-title">Or Use Docker (Recommended)</h3>
+                <div class="workflow-step">
+                    <div class="step-number">🐳</div>
+                    <div class="step-content">
+                        <h3>One Command Setup</h3>
+                        <p>No Python installation required</p>
+                        <pre style="background: #1a1b26; color: #a9b1d6; padding: 1.5rem; border-radius: 8px; overflow-x: auto; text-align: left; margin-top: 1rem;">
+<span style="color: #7aa2f7;"># Start everything with docker-compose</span>
+<span style="color: #9ece6a;">docker-compose up</span>
+
+<span style="color: #7aa2f7;"># Or use make</span>
+<span style="color: #9ece6a;">make docker-up</span></pre>
+                        <p style="margin-top: 1.5rem; color: #9ece6a;">✓ Consistent environment across all platforms</p>
+                        <p style="color: #9ece6a;">✓ Includes all dependencies and services</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script defer src="https://commento.valiantlynx.com/js/commento.js"></script>
+    <div id="commento"></div>
+
+    <!-- Use Cases Section -->
+    <section id="use-cases" class="pricing">
+        <div class="container">
+            <h2 class="section-title">Perfect For</h2>
+            <p class="section-subtitle">Use this template as a foundation for your next project</p>
+            
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <h3 class="pricing-tier">APIs</h3>
+                    <div class="pricing-price">
+                        <span class="amount">🚀</span>
+                    </div>
+                    <ul class="pricing-features">
+                        <li>✓ RESTful APIs</li>
+                        <li>✓ Microservices</li>
+                        <li>✓ GraphQL backends</li>
+                        <li>✓ Webhooks</li>
+                    </ul>
+                    <a href="https://github.com/mythrantic/python-development-environment" class="btn-outline">View on GitHub</a>
+                </div>
+
+                <div class="pricing-card featured">
+                    <div class="pricing-badge">Popular</div>
+                    <h3 class="pricing-tier">ML/AI Projects</h3>
+                    <div class="pricing-price">
+                        <span class="amount">🤖</span>
+                    </div>
+                    <ul class="pricing-features">
+                        <li>✓ Model serving APIs</li>
+                        <li>✓ Data pipelines</li>
+                        <li>✓ ML inference endpoints</li>
+                        <li>✓ AI applications</li>
+                    </ul>
+                    <a href="/docs" class="btn-primary">Get Started</a>
+                </div>
+
+                <div class="pricing-card">
+                    <h3 class="pricing-tier">Web Apps</h3>
+                    <div class="pricing-price">
+                        <span class="amount">💻</span>
+                    </div>
+                    <ul class="pricing-features">
+                        <li>✓ Full-stack applications</li>
+                        <li>✓ Admin dashboards</li>
+                        <li>✓ SaaS platforms</li>
+                        <li>✓ Internal tools</li>
+                    </ul>
+                    <a href="/docs" class="btn-outline">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="nav-brand">
+                        <svg class="logo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+                        </svg>
+                        <span class="logo-text">Python Dev Template</span>
+                    </div>
+                    <p class="footer-tagline">Production-ready Python project template</p>
+                </div>
+                
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Project</h4>
+                        <a href="#features">Features</a>
+                        <a href="#structure">Structure</a>
+                        <a href="#getting-started">Get Started</a>
+                        <a href="/docs">API Docs</a>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h4>Resources</h4>
+                        <a href="/docs">Documentation</a>
+                        <a href="/docs">API Reference</a>
+                        <a href="https://github.com/mythrantic/python-development-environment" target="_blank">GitHub</a>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h4>Community</h4>
+                        <a href="https://github.com/mythrantic/python-development-environment/issues" target="_blank">Issues</a>
+                        <a href="https://github.com/mythrantic/python-development-environment/discussions" target="_blank">Discussions</a>
+                        <a href="mailto:samletnorge@gmail.com">Contact</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Samlet Norge. All rights reserved. Licensed under MIT.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>

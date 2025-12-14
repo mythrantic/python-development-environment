@@ -70,13 +70,13 @@ install: ## Install dependencies (uv)
 	@make install_datasets
 	@echo "$(GREEN)Installation complete$(NC)"
 
-install_models: ## go to models and git clone https://huggingface.co/samletnorge/sam3
+install_models: ## go to models and git clone https://huggingface.co/mythrantic/sam3
 	@echo "$(BLUE)Cloning model repositories...$(NC)"
 	@cd models && \
-		git clone https://huggingface.co/samletnorge/sam3;
+		git clone https://huggingface.co/mythrantic/sam3;
 	@echo "$(GREEN)Model repositories cloned$(NC)"
 
-install_datasets: ## go to datasets and git clone https://huggingface.co/datasets/samletnorge/receipt-ocr-dataset
+install_datasets: ## go to datasets and git clone https://huggingface.co/datasets/mythrantic/receipt-ocr-dataset
 	@echo "$(BLUE)No dataset repositories to clone currently$(NC)"
 
 check: ## Run tests
